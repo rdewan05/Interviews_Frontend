@@ -1,0 +1,24 @@
+// let arr = [1, 2, 3, 4];
+// arr.splice(0, arr.length);
+// console.log(arr);
+
+// arr.push(1);
+// arr.push(2);
+
+// var a = arr;
+
+// arr = [];
+
+// console.log(a);
+
+
+
+var flash = [8,8,8];
+var quicksilver = flash;   //assign-by-reference
+//flash.pop();
+//quicksilver.pop();
+//quicksilver.push(0);
+//quicksilver.splice(0, quicksilver.length);
+flash = [];
+console.log(flash);        //[8,8,8,0]
+console.log(quicksilver);  //[8,8,8,0]
