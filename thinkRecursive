@@ -1,0 +1,32 @@
+var person = {
+    name: "Richa",
+    address: {
+        personal: {
+            city: "Gurgaon",
+            area: "Urban Estate"
+        },
+        office: {
+            city: "Gurgaon",
+            area: {
+                place: "Udyog Vihar",
+                landmark: "Airtel Office"
+            }
+        }
+    }
+}
+
+let finalObject = {};
+function recursive(obj, parent) {
+    for (let key in obj) {
+        if (typeof obj[key] == 'object') {
+            recursive(obj[key], parent + "_" + key);
+        } else {
+            finalObject[parent+ "_"+key] = obj[key];
+        }
+    }
+
+}
+
+recursive(person, "person");
+
+console.log(finalObject);
