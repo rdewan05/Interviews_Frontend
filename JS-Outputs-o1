@@ -1,0 +1,61 @@
+// console.log("Paul1")
+// let a2 = () => {
+//   setTimeout(() => {
+//     console.log("inside setTimeout")
+//   }, 500)
+// }
+// a2();
+// console.log("Paul2")
+
+// let a3 = new Promise(() => {})
+
+// console.log(a3);
+
+//********/
+//paul1
+//paul2
+//Promise {<pending>}
+//inside setTimeout
+
+// console.log("Paul1")
+// let a2 = () => {
+//   setTimeout(() => {
+//     console.log("inside setTimeout")
+//   }, 500)
+// }
+// a2()
+// console.log("Paul2")
+
+// let a3 = new Promise((resolve, reject) => {
+//   // console.log("Resolved immediately without condition");
+//   resolve("Resolved immediately without condition")
+// })
+
+// console.log(a3);
+
+//********/
+//paul1
+//paul2
+//Promise { 'Resolved immediately without condition' }
+//inside setTimeout
+
+var a = 2, b = 3, c = 4, d = 5, e = 6;
+
+console.log(a);
+setTimeout(function () {
+    
+    console.log(c)
+}, 500);
+setTimeout(function () {
+    console.log(d)
+}, 500);
+setTimeout(function () {
+    console.log(e)
+}, 500);
+console.log(b);
+
+//2
+//3
+//4
+//5
+//6
