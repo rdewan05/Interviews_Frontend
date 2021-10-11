@@ -1,0 +1,7 @@
+color = 'white';
+
+function getColor(){
+ return this.color;
+}
+
+console.log(getColor());
