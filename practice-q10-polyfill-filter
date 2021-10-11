@@ -1,0 +1,28 @@
+//polyfill_filter
+
+let arr = [5, 1, 3, 2, 6];
+
+//const output = arr.filter(val => val % 2);
+
+// function isOdd(x) {
+//     return x % 2;
+// }
+
+//console.log(output);
+
+function cB(curr, i, arr) {
+    return curr % 2;
+}
+
+Array.prototype.myFilter = function (cB) {
+    let ar = [];
+    for (let i = 0; i < this.length; i++) {
+        if (cB(this[i], i, this)) {
+            ar.push(this[i]);
+        }
+    }
+    return ar;
+}
+
+const filtered = arr.myFilter(cB);
+console.log(filtered);
