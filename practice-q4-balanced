@@ -1,0 +1,19 @@
+//balanced string
+
+//complete this/.....
+function isBalanced(str) {
+    var map = {};
+    for (let letter of str) {
+        if (letter.charCodeAt() >= 97 && letter.charCodeAt() <= 122) {
+            map[letter] = (map[letter] || 0) + 1;
+        } else {
+            var correspondingLetterIndex = (letter.charCodeAt() - 65);
+            var correspondingLetterCharCode = 97 + correspondingLetterIndex;
+            if(map[correspondingLetterCharCode]){
+                map[correspondingLetterCharCode] = true;
+            } else {
+
+            }
+        }
+    }
+}
