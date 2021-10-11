@@ -1,0 +1,17 @@
+var obj = { foo: 1, bar: 2, baz: 4 };
+//?foo=1&bar=2&baz=4
+function generateString(obj) {
+    var str = [];
+    if (Object.keys(obj).length === 0) {
+        return str.join("");
+    } else {
+        for (var param in obj) {
+            str.push(param + '=' + obj[param]);
+        }
+        str = '?' + str.join("&");
+        return str;
+    }
+}
+
+var query = generateString(obj);
+console.log(query);
