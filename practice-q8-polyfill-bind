@@ -1,0 +1,20 @@
+//polyfill_bind
+
+var myName = {
+    name: 'Richa'
+}
+
+function getName(location) {
+    console.log("Hi, I am : ", this.name, ", from : ", location);
+}
+
+Function.prototype.myBind = function (...args) {
+    let fn = this;
+    return function () {
+        let params = args.slice(1);
+        fn.apply(args[0], [...params]);
+    }
+}
+
+var func = getName.myBind(myName, 'Gurgaon');
+func();
