@@ -1,0 +1,22 @@
+import React, { useEffect, useState } from "react";
+import "./style.css";
+
+
+export default function App() {
+    const [resultsObj, setResultsObj] = useState({});
+    const url = 'https://randomuser.me/api/?results=1';
+
+    useEffect(() => {
+        fetch(url).then(response => response.json())
+            .then((data) => {
+                setResultsObj(data.results[0]);
+            });
+    }, []);
+
+    return (
+        <div>
+            { Object.keys(resultsObj).map((val) =>
+                <h2>{val}</h2>)}
+        </div>
+    );
+}
