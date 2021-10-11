@@ -1,0 +1,23 @@
+import "./styles.css";
+import { useEffect, useState } from 'react';
+
+export default function App() {
+    const [timer1, setTimer1] = useState(0);
+
+    const startTimer = () => {
+        setTimeout(() => {
+            setTimer1(timer1 + 1);
+        }, 1000)
+    }
+
+    useEffect(() => {
+        startTimer();
+    }, [timer1]);
+    return (
+        <div className="App">
+            <p>Clock1 : {timer1}</p>
+            <p>Clock2 : {Math.floor(timer1 / 2)}</p>
+            <p>Clock3 : {Math.floor(timer1 / 5)}</p>
+        </div>
+    );
+}
