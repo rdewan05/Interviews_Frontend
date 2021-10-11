@@ -1,0 +1,11 @@
+class User {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    getData() {
+        console.log(this.name + this.age);
+    }
+}
+let user = new User('Richa', 25);
+user.getData();
