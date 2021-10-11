@@ -1,0 +1,19 @@
+//polyfill bind
+
+function printMyName() {
+    console.log("My name is : " + this.name);
+}
+
+let nameObj = {
+    name : "richa"
+}
+
+Function.prototype.mybind = function (...args) {
+    let obj = this;
+    return function () {
+        obj.call(args[0]);
+    }
+}
+
+let printName = printMyName.mybind(nameObj);
+printName();
