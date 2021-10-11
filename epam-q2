@@ -1,0 +1,19 @@
+// var sum = function (a, b) {
+//     return new Promise((resolve, reject) => {
+//         var sum = a + b;
+//         resolve(sum);
+//     });
+// }
+
+// sum(2,6).then((valFromSum) => console.log(valFromSum));
+
+
+var sum = function (a, b) {
+    return new Promise((resolve, reject) => {
+        var sum = a + b;
+        resolve(sum);
+    });
+}
+
+
+sum(2, 6).then((valFromSum) => console.log(valFromSum));
