@@ -1,0 +1,30 @@
+//polyfill_reduce
+
+let arr = [1, 2, 3, 4];
+
+// var val = arr.reduce((acc, curr) => {
+//     acc += curr;
+//     return acc;
+// }, 0);
+
+// console.log(val);
+
+function cB(acc, curr, index, arr) {
+    var acc = acc + curr;
+    return acc;
+}
+
+Array.prototype.myReduce = function (cB, initialValue) {
+    var acc = initialValue;
+    for (let i = 0; i < this.length; i++) {
+        if (acc !== undefined) {
+            acc = cB.call(undefined, acc, this[i], i, this);
+            //acc = cB(acc, this[i], i, this);
+        } else {
+            acc = this[i];
+        }
+    }
+    return acc;
+}
+
+console.log(arr.myReduce(cB, 0));
