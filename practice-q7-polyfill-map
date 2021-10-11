@@ -1,0 +1,40 @@
+//pollyfill_map
+
+let arr = [1, 2, 3, 4];
+
+function cb(el) {
+    return el * 2;
+}
+
+// if (typeof (Array.prototype.map) === 'undefined') {
+//     Array.prototype.map = function (cb) {
+//         let newArr = [];
+//         for (let i = 0; i < this.length; i++) {
+//             const curr = cb(this[i]);
+//             if (curr) {
+//                 newArr.push(curr);
+//             }
+//         }
+
+//         return newArr;
+//     }
+
+//     console.log(arr.map(cb));
+// } else {
+//     console.log(arr.map(cb));
+// }
+
+Array.prototype.myMap = function (cb) {
+    let newArr = [];
+    for (let i = 0; i < this.length; i++) {
+        const curr = cb(this[i]);
+        if (curr) {
+            newArr.push(curr);
+        }
+    }
+
+    return newArr;
+}
+
+console.log(arr.myMap(cb));
+
