@@ -1,0 +1,53 @@
+var obj = {
+    a: {
+        b: {
+            c: 12,
+            j: false
+        },
+        k: null
+    }
+};
+
+
+
+// var newObj = {
+//  'a' : {b:{}},
+//  'b' :  
+//  'a.b.c' : 12,
+//  'a.b.j' : false,
+//  'a.k' : null,
+// }
+
+function createNewObj(obj, newObj, parent) {
+    for (let key in obj) {
+        if (typeof (obj[key]) === 'object') {
+            newObj[parent+'.'+key] = obj[key];
+            createNewObj(obj[key], newObj, parent + '.' + key);
+        } else {
+            newObj[parent + '.' + key] = obj[key];
+        }
+    }
+    return newObj;
+}
+
+function findPath(obj, keys) {
+    var newObj = {};
+    newObj = createNewObj(obj, newObj, 'obj');
+    for (let key in newObj) {
+        if (key === keys) {
+            return newObj[key];
+        }
+    }
+    return;
+}
+
+
+console.log(findPath(obj, 'obj.a.b.c')); // 12
+console.log(findPath(obj, 'obj.a.b')); // {c: 12, j: false}
+console.log(findPath(obj, 'obj.a.b.d')); // undefined
+console.log(findPath(obj, 'obj.a.c')); // undefined
+console.log(findPath(obj, 'obj.a.b.c.d')); // undefined
+console.log(findPath(obj, 'obj.a.b.c.d.e')); // undefined
+console.log(findPath(obj, 'obj.a.b.j')); //false
+console.log(findPath(obj, 'obj.a.b.j.k')); //undefined
+console.log(findPath(obj, 'obj.a.k')); //null
