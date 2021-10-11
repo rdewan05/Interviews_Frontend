@@ -1,0 +1,62 @@
+const update = require('immutability-helper');
+
+const pizzas = {
+    margherita: {
+        toppings: ['tomato sauce', 'mozzarella cheese'],
+        prices: {
+            small: '5.00',
+            medium: '6.00',
+            large: '7.00'
+        }
+    },
+    prosciutto: {
+        toppings: ['tomato sauce', 'mozzarella cheese', 'ham'],
+        prices: {
+            small: '6.50',
+            medium: '7.50',
+            large: '8.50'
+        }
+    }
+};
+
+// let pizzasCopy = {...pizzas};
+// pizzasCopy.margherita.prices.small = '5.50';
+// console.log(pizzasCopy.margherita.prices.small); // This will log 5.50, as expected
+// console.log(pizzas.margherita.prices.small); // This will also log 5.50 instead of 5.00!!
+
+
+// pizzasCopy.margherita = {};
+// console.log(pizzasCopy.margherita); // This will log an empty object, as expected
+// console.log(pizzas.margherita); // This will still log the original source object
+
+//Same with Object.assign()
+
+// let pizzasCopy = Object.assign({}, pizzas);
+// pizzasCopy.margherita.prices.small = '5.50';
+// console.log(pizzasCopy.margherita.prices.small); // This will log 5.50, as expected
+// console.log(pizzas.margherita.prices.small); // This will also log 5.50 instead of 5.00!!
+
+
+//immutability-helper js library
+
+// const pizzasCopy = update(pizzas, {
+//     margherita: {
+//         prices: {
+//             small: { $set: '5.50' }
+//         }
+//     }
+// });
+
+// console.log(pizzasCopy.margherita); // This will log 5.50, as expected
+// console.log(pizzas.margherita); // This will correctly log 5.00, the original price!!
+
+
+//using JSON.stringify
+
+const copiedOBJ = JSON.parse(JSON.stringify(pizzas));
+console.log(copiedOBJ);
+copiedOBJ.margherita.prices.small = '5.50';
+console.log(copiedOBJ.margherita.prices.small);
+console.log(pizzas.margherita.prices.small);
+
+
