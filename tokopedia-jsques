@@ -1,0 +1,133 @@
+// //#1
+// console.log(1 + '4' + '6');
+// //146
+// console.log('1' + 4 + 6);
+// //110
+// console.log('1' + '4' + 6);
+// //146
+// console.log(1 + 4 + '6');
+// //56
+
+
+// console.log(x); //undefined
+// console.log(y); //function
+// console.log(z); // reference error
+// var x = 3;
+// function y() {
+//     //
+// }
+// let z = 4;
+
+
+// number
+// string
+// null
+// boolean
+// array
+// object
+// undefined
+
+// console.log(typeof [], typeof {}, typeof null);
+// // object, object, object
+
+
+var x = {
+    data: 3,
+    returnValue: function () {
+        //return function () {
+        console.log(this);
+        console.log(this.data);
+
+    }
+}
+x.returnValue();
+
+var y = {
+    data: 4,
+    returnValue: () => {
+        return () => {
+            console.log(this);
+            console.log(this.data);
+        }
+    }
+}
+y.returnValue()();
+// 4
+
+
+// if (Array.prototype[map] === undefined) {
+//     Array.prototype.map = function (callback) {
+//         let newArr = [];
+//         for (let index = 0; index < this.length; index++) {
+//             const curr = callback(this[index]);
+//             if (curr) {
+//                 newArr.push(curr);
+//             }
+
+//         }
+//         return newArr;
+//     }
+
+// }
+
+// Array.prototype.map = () => {
+//     let newArr = [];
+//     for (let index = 0; index < this.length; index++) {
+//         const curr = callback(this[index]);
+//         if (curr) {
+//             newArr.push(curr);
+//         }
+
+//     }
+//     return newArr;
+// }
+
+// //
+// function sum(a) {
+//     var sum = 0;
+//     return function (b) {
+//         sum = a + b;
+//         return sum;
+//     }
+// }
+
+// var result = sum(2)(3); // result = 5
+
+// var str = 'abcABCdef';
+// var str = 'abcABCdD';
+
+// let newArr = [];
+// for loop:
+//     [a, b, c, A, B, C, d, D]
+//find acsii value, and cooresponding
+
+// if (map(str[i])
+// map = {
+//         'A': 'a',
+//         'B': 'b',
+
+//     }
+
+// newARR = [a, b]
+
+
+// function checkBalanced(str) {
+//     var obj = {};
+//     for (let letter of str) {
+//         if (letter.charCodeAt() >= 97 && letter.charCodeAt() <= 122) {
+//             obj[letter] = (obj[letter] || 0) + 1;
+//         }
+//         else {
+//             if (obj[correspondingLetter]) {
+//                 obj[correspondingLetter] = true;
+//             }
+//         }
+
+//         var str = 'abcABCdef';
+//         var str = 'abcABCdD';
+
+//         function balanced(str) {
+//             let obj
+//         }
+
+//         aAB
