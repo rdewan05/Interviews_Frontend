@@ -1,0 +1,64 @@
+import { useEffect, useState } from "react";
+import "./styles.css";
+import axios from "axios";
+
+export default function App() {
+  const [pokemonInfo, setPokemonInfo] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [indexTotal, setIndexTotal] = useState(0);
+
+  const fetchData = (urlVal) => {
+    let url;
+    if (urlVal) {
+      url = urlVal;
+    } else {
+      url = "https://pokeapi.co/api/v2/pokemon";
+    }
+    return axios
+      .get(url)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const filterPokemon = () => {
+    if (searchTerm === "") {
+      return;
+    }
+    const pokemon = pokemonInfo.filter(
+      (pokemon) => pokemon.name === searchTerm
+    );
+    console.log(pokemon);
+    if (pokemon) {
+      fetchData(pokemon[0].url).then((data) => {
+        console.log(data);
+        var game_indices = data.data.game_indices;
+
+        var indexTotal = game_indices.reduce((acc, val) => {
+          acc = acc + val.game_index;
+          return acc;
+        }, 0);
+        setIndexTotal(indexTotal);
+      });
+    }
+  };
+  useEffect(() => {
+    (async () => {
+      const pokemonData = await fetchData();
+      setPokemonInfo(pokemonData.data.results);
+    })();
+  }, []);
+
+  return (
+    <div className="App">
+      <input
+        type="text"
+        placeholder="Search.."
+        onChange={(event) => setSearchTerm(event.target.value)}
+      />
+      <button onClick={() => filterPokemon()}>Submit</button>
+      <div>{indexTotal > 0 && searchTerm !== "" ? indexTotal : null}</div>
+    </div>
+  );
+}
