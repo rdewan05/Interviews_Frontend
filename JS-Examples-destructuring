@@ -1,0 +1,31 @@
+//destructuring
+
+// let myObj = {
+//     my_name: "Richa",
+//     age: 25,
+//     hobbies: "music"
+// };
+
+// let { my_name, age, hobbies } = myObj;
+
+// console.log(my_name, age, hobbies);    // => Richa 25 music
+
+//using spread operator
+
+// let obj = {
+//     my_name: "richa",
+//     age: 26,
+//     city: "gurgaon"
+// };
+
+// let { city, ...rest } = obj;
+// console.log(city, rest);
+
+//*************/
+//Array Destructuring
+
+let arr = ['Jim', 'Bob', 'Sarah', 'Cassie'];
+
+let [jim, bob, sarah, cassie] = arr;
+
+console.log(jim, bob, cassie); //outputs: Jim Bob Sarah Cassie
