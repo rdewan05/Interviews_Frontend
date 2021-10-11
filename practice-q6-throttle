@@ -1,0 +1,23 @@
+//throttling
+
+function fn(n) {
+    console.log(n);
+}
+
+const throttle = (fn, delay) => {
+    let flag = true;
+    return function (n) {
+        if (flag) {
+            fn(n);
+            flag = false;
+
+            setTimeout(() => {
+                flag = true;
+            }, delay);
+        }
+    }
+}
+const throttled = throttle(fn, 1000);
+
+throttled(2);
+throttled(3);
