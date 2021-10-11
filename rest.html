@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <title>Zomaco</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        #inner {
+            overflow-y: hidden;
+        }
+
+        .restaurant {
+            background-color: beige;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            float: left;
+            margin: 7em;
+
+        }
+
+        .wrapper {
+            max-width: 450px;
+            margin: 150px auto;
+        }
+
+        .wrapper .search-input {
+            position: relative;
+            background: lightcyan;
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+        }
+
+        .search-input input {
+            height: 55px;
+            width: 100%;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            padding: 0 60px 0 20px;
+            font-size: 18px;
+        }
+
+        .search-input .icon {
+            height: 55px;
+            width: 55px;
+            line-height: 55px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: center;
+            font-size: 20px;
+            color: #644bff;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .search-input .autocom-box {
+            padding: 0px;
+            max-height: 280px;
+            overflow-y: auto;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .search-input.active .autocom-box {
+            padding: 10px 8px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .autocom-box li {
+            list-style: none;
+            padding: 8px 12px;
+            width: 100%;
+            cursor: default;
+            border-radius: 3px;
+            display: none;
+        }
+
+        .search-input.active .autocom-box li {
+            display: block;
+
+        }
+
+        .autocom-box li:hover {
+            background: #efefef;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Order food from your fav restaurants from ZOMACO!</h1>
+    <div class="wrapper">
+        <div class="search-input">
+            <input type="text" placeholder="Type to search..">
+            <div class="autocom-box">
+                <li>Pizza Hut</li>
+                <li>Dominos</li>
+                <li>Burger Express</li>
+                <li>Subway</li>
+                <li>Faasos</li>
+            </div>
+            <div class="icon">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <div id="inner">
+
+        </div>
+    </div>
+    <script src='Rest.js'></script>
+    <script src='js/suggestions.js'></script>
+    <script src='js/script.js'></script>
+</body>
+
+</html>
