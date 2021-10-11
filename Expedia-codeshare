@@ -1,0 +1,119 @@
+Variable Hoisting
+function hoisting
+let and const
+-------------------
+
+Prototype and Constructor
+
+var x = function (a) {
+	this.a = a;
+  console.log('test');
+}
+x.prototype.printA= function () {
+	console.log(this.a);
+}
+
+var new_x = new x('A');
+
+console.log(new_x);
+//
+{
+	a: 'A'
+}
+
+-------------------
+
+Bind, call, apply
+
+var my_name={
+name: "Richa",
+
+}
+
+var func = getName.bind(my_name);
+func();
+var func2 = getName.call(my_name, 'a');
+var func3 = getName.apply(my_name, [1,2]);
+
+function getName() {
+	console.log("Hi, my name is : ",this.name);
+  console.log(arguments[0]);
+  // arguments[0] = 'a'; call
+  // arguments[0] = 1; apply
+}
+
+-------------------
+
+Arrow function and normal function
+// var x = () => { console.log('test'); };
+
+-------------------
+
+Promises:
+it solves the problem of callback hell
+
+Promise.all([() => {}, () => {}, () => {}]) // call1 success, call2 failed, call3 success
+.then([res1, res2, res3])
+.catch([res1, res2, res3])
+
+Promise.allSettled = [{}, {}, {}];
+-------------------
+
+CORS error:
+cross domain url is hit, we will get CORS error
+origin: https://www.expedia.com -> https://www.google.com
+
+How to solve it:
+fix it from backend, add header: allow origin header (we can add the allowed host)
+it is checked using pre-flight call (OPTIONS)
+
+-------------------
+
+Security issues in frontend:
+
+- XSS (cross site scripting) (fix: we should not allow any html tags to render)
+-------------------
+
+------------------------------------------------------------------------------------------------------------------
+
+CSS:
+
+Specificity:
+it decides the priority of styling
+
+div {
+	color: yellow;
+}
+div > span {
+	color: black;
+}
+#id {
+	color: green;
+}
+.class {
+	color: red;
+}
+
+<div class="class" id="id" style="color: blue;">
+	<span>text1</span>
+</div>
+// Ans: text1 will have 'blue' color
+
+<div class="class" id="id">
+	<span>text1</span>
+</div>
+// Ans: text1 will have 'green' color
+-------------------
+
+Responsive design:
+
+-------------------
+
+------------------------------------------------------------------------------------------------------------------
+
+Accessibility (accessible websites)
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
