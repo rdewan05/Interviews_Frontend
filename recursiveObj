@@ -1,0 +1,38 @@
+const pizzas = {
+    margherita: {
+        toppings: ['tomato sauce', 'mozzarella cheese'],
+        prices: {
+            small: '5.00',
+            medium: '6.00',
+            large: '7.00'
+        }
+    },
+    prosciutto: {
+        toppings: ['tomato sauce', 'mozzarella cheese', 'ham'],
+        prices: {
+            small: '6.50',
+            medium: '7.50',
+            large: '8.50'
+        }
+    }
+};
+
+
+let finalObject = {};
+
+function recursive(obj, parent) {
+    for (let key in obj) {
+        if (typeof (obj[key]) == 'object') {
+            recursive(obj[key], parent + "_" + key);
+        }
+        else {
+            finalObject[parent + "_" + key] = obj[key];
+        }
+    }
+}
+
+recursive(pizzas, "pizzas");
+console.log(finalObject);
+
+let arr = [1,2,3];
+console.log(Array.isArray(arr));
