@@ -1,0 +1,30 @@
+// let count = 1000000;
+// document.getElementById('draw').addEventListener("click", ()=>{
+//   callSetTimeout();
+// }
+                                                 
+// function callSetTimeout(){
+
+//   const counter = document.getElementById('counter');
+//   const loopval = Math.floor(1000000/1000);
+//   while(loopval) {
+//     setTimeout(()=>{
+//     for(let i=1; i<=1000; i++){
+//     const val = document.createElement('p');
+//     val.innerText = i;
+//     counter.appendChild(val);
+//   }});
+//     loopval--;
+//   }
+// }
+ 
+  
+  
+// }
+
+//HTML
+
+// <input type="text" placeholder="here.."/>
+
+// <button id="draw">Draw</button>
+// <div id='counter'></div>
