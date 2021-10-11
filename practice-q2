@@ -1,0 +1,19 @@
+// function foo(){
+//     console.log(arguments);
+// }
+
+// foo('a', 'b');
+
+// const foo = () =>{
+//     console.log(arguments);
+// }
+
+// foo('a', 'b');
+
+//Reverse a string
+
+function reverse(str){
+    return str.split(" ").reverse().join(" ")
+}
+
+console.log(reverse("HiRicha"));
