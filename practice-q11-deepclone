@@ -1,0 +1,44 @@
+
+var pizzas = {
+    margherita: {
+        toppings: ['tomato sauce', 'mozzarella cheese'],
+        prices: {
+            small: '5.00',
+            medium: '6.00',
+            large: '7.00'
+        }
+    },
+    prosciutto: {
+        toppings: ['tomato sauce', 'mozzarella cheese', 'ham'],
+        prices: {
+            small: '6.50',
+            medium: '7.50',
+            large: '8.50'
+        }
+    }
+};
+
+
+//function deepClone(obj) {
+// let clone = {};
+// for (let key in pizzas) {
+//     if (pizzas.hasOwnProperty(key)) {
+//         clone[key] = pizzas[key];
+//     }
+// }
+
+//return clone;
+//}
+
+//var cloned = deepClone(pizzas);
+var clone = JSON.parse((JSON.stringify(pizzas)));
+
+pizzas.margherita.prices.small = '00.00';
+
+console.log(pizzas.margherita.prices.small);
+console.log(clone.margherita.prices.small);
+
+
+// pizzas.margherita.prices.small = '00.00';
+// console.log(pizzas.margherita.prices.small);
+// console.log(clone.margherita.prices.small);
