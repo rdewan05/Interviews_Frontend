@@ -1,0 +1,24 @@
+// polyfill for map
+
+Array.prototype.myMap = function (callBack) {
+    let newArray = [];
+    for (let index = 0; index < this.length; index++) {
+        const currEl = callBack(this[index], index);
+        if (currEl) {
+            newArray.push(currEl);
+        }
+    }
+
+    return newArray;
+
+}
+
+
+function cbFunc(el, i) {
+    return 2 * el;
+}
+
+let arr = [1, 2, 3, 4, 5];
+console.log(arr);
+let newArr = arr.myMap(cbFunc);
+console.log(newArr);
