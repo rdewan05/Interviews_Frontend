@@ -1,0 +1,22 @@
+const human = {
+    walk() {
+        console.log('walking....')
+    },
+    sleep() {
+        console.log('sleeping....')
+    },
+    describe(name) {
+        console.log(`my name is ${name}`)
+    }
+}
+const programmer = Object.create(human);
+
+programmer.code = () => {
+    console.log("Hi, I'm coding...");
+}
+
+for (const i in programmer) {
+    if (programmer.hasOwnProperty(i)) {
+        console.log(i);
+    }
+}
